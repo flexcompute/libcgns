@@ -209,7 +209,7 @@ endif (CGNS_ENABLE_FORTRAN AND HAS_FORTRAN)
 # HDF5 #
 ########
 
-option(CGNS_ENABLE_HDF5 "Enable or disable HDF5 interface" "OFF")
+option(CGNS_ENABLE_HDF5 "Enable or disable HDF5 interface" "ON")
 if (CGNS_ENABLE_HDF5)
 
   if (CGNS_BUILD_SHARED)
@@ -287,7 +287,7 @@ if (CGNS_ENABLE_HDF5)
     message (FATAL_ERROR " HDF5 was specified but was not found")
   endif (HDF5_FOUND)
 
-  set(HDF5_NEED_ZLIB "OFF" CACHE BOOL "Does the HDF5 library require linking to zlib?")
+  set(HDF5_NEED_ZLIB "ON" CACHE BOOL "Does the HDF5 library require linking to zlib?")
   if(HDF5_NEED_ZLIB)
     find_library(ZLIB_LIBRARY z)
     mark_as_advanced(CLEAR ZLIB_LIBRARY)
@@ -295,9 +295,9 @@ if (CGNS_ENABLE_HDF5)
     mark_as_advanced(FORCE ZLIB_LIBRARY)
   endif(HDF5_NEED_ZLIB)
 
-  set(HDF5_NEED_SZIP "OFF" CACHE BOOL "Does the HDF5 library require linking to szip?")
+  set(HDF5_NEED_SZIP "ON" CACHE BOOL "Does the HDF5 library require linking to szip?")
   if (HDF5_NEED_SZIP)
-    find_library(SZIP_LIBRARY szip)
+    find_library(SZIP_LIBRARY sz)
     mark_as_advanced(CLEAR SZIP_LIBRARY)
   else (HDF5_NEED_SZIP)
     mark_as_advanced(FORCE SZIP_LIBRARY)
