@@ -724,7 +724,7 @@ endif (CGNS_ENABLE_TESTS)
 ##############
 
 
-set(CGNS_BUILD_CGNSTOOLS "OFF" CACHE BOOL "Build the CGNSTools package")
+set(CGNS_BUILD_CGNSTOOLS "ON" CACHE BOOL "Build the CGNSTools package")
 if(CGNS_BUILD_CGNSTOOLS)
   add_subdirectory(cgnstools)
 endif(CGNS_BUILD_CGNSTOOLS)
