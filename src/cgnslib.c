@@ -3354,6 +3354,10 @@ static void free_offset_data(cgns_section *section)
 
 static int read_offset_data(cgns_section *section)
 {
+    if (section->connect_offset == NULL){
+        cgi_error("connect_offset is missing");
+        return CG_ERROR;
+    }
     if (section->connect_offset->data == NULL) {
         cgsize_t cnt = section->connect_offset->dim_vals[0];
 
@@ -4069,6 +4073,10 @@ int cg_ElementPartialSize(int file_number, int B, int Z, int S,
       return CG_OK;
     }
 
+    if (section->connect_offset == NULL){
+        cgi_error("connect_offset is missing");
+        return CG_ERROR;
+    }
     if (section->connect_offset->data == NULL) {
         // Only read a slice of the ElementStartOffset array
         cnt = end - start + 2;
