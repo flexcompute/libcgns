@@ -14817,3 +14817,24 @@ int cg_free(void *data) {
     }
     return CG_ERROR;
 }
+
+// added functions by Flexcompute
+
+bool cg_connOffsetExists(int file_number, int B, int Z, int S)
+{
+    cgns_section *section;
+
+    cg = cgi_get_file(file_number);
+    if (cg == 0) return CG_ERROR;
+
+     /* verify input */
+    if (cgi_check_mode(cg->filename, cg->mode, CG_MODE_READ)) return CG_ERROR;
+
+    section = cgi_get_section(cg, B, Z, S);
+    if (section == 0) return CG_ERROR;
+
+    bool connOffsetExist = false;
+    if (section->connect_offset != NULL)
+        connOffsetExist = true;
+    return connOffsetExist;
+}

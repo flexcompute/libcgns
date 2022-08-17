@@ -47,6 +47,7 @@
 #define CGNS_COMPATDOTVERS 2.54
 
 #include "cgnstypes.h"
+#include "stdbool.h"
 
 #if CG_BUILD_SCOPE
 # ifndef CGNS_SCOPE_ENUMS
@@ -1628,6 +1629,9 @@ CGNSDLL int cg_free(void *data);
 CGNSDLL const char *cg_get_error(void);
 CGNSDLL void cg_error_exit(void);
 CGNSDLL void cg_error_print(void);
+
+// added functions by Flexcompute
+CGNSDLL bool cg_connOffsetExists(int file_number, int B, int Z, int S);
 
 #ifdef __cplusplus
 }
