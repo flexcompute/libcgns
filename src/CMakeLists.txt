@@ -629,15 +629,15 @@ else(CGNS_BUILD_SHARED)
 endif(CGNS_BUILD_SHARED)
 
 # Change the output name of the library to be libcgns
-set_target_properties(cgns_static PROPERTIES OUTPUT_NAME cgns)
+set_target_properties(cgns_static PROPERTIES OUTPUT_NAME cgns-flow360)
 set_target_properties(cgns_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 if(CGNS_BUILD_SHARED)
   # for windows we need to change the name of the shared library
   # for both static and shared version to exist
   if (WIN32 OR CYGWIN)
-    set_target_properties(cgns_shared PROPERTIES OUTPUT_NAME cgnsdll)
+    set_target_properties(cgns_shared PROPERTIES OUTPUT_NAME cgnsdll-flow360)
   else (WIN32 OR CYGWIN)
-    set_target_properties(cgns_shared PROPERTIES OUTPUT_NAME cgns)
+    set_target_properties(cgns_shared PROPERTIES OUTPUT_NAME cgns-flow360)
   endif (WIN32 OR CYGWIN)
   set_target_properties(cgns_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 endif(CGNS_BUILD_SHARED)
