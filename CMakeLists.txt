@@ -231,7 +231,8 @@ if (CGNS_ENABLE_HDF5)
      cmake_policy(SET CMP0074 NEW)
   endif()
 
-  find_package (HDF5 NAMES ${SEARCH_PACKAGE_NAME} COMPONENTS ${FIND_HDF_COMPONENTS})
+  find_package (HDF5 NAMES ${SEARCH_PACKAGE_NAME} COMPONENTS ${FIND_HDF_COMPONENTS} PATHS ${APPLICATION_DEPEND_DIR}/hdf5-1.13.3)
+
   message (STATUS "HDF5 C libs:${HDF5_FOUND} static:${HDF5_static_C_FOUND} and shared:${HDF5_shared_C_FOUND}")
   if (HDF5_FOUND)
     if (NOT HDF5_static_C_FOUND AND NOT HDF5_shared_C_FOUND)
